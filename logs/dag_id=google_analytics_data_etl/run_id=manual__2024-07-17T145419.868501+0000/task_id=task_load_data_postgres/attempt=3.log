@@ -1,0 +1,31 @@
+[2024-07-17T14:59:58.634+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: google_analytics_data_etl.task_load_data_postgres manual__2024-07-17T14:54:19.868501+00:00 [queued]>
+[2024-07-17T14:59:58.653+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: google_analytics_data_etl.task_load_data_postgres manual__2024-07-17T14:54:19.868501+00:00 [queued]>
+[2024-07-17T14:59:58.656+0000] {taskinstance.py:2171} INFO - Starting attempt 3 of 4
+[2024-07-17T14:59:58.690+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): task_load_data_postgres> on 2024-07-17 14:54:19.868501+00:00
+[2024-07-17T14:59:58.708+0000] {standard_task_runner.py:60} INFO - Started process 2075 to run task
+[2024-07-17T14:59:58.728+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'google_analytics_data_etl', 'task_load_data_postgres', 'manual__2024-07-17T14:54:19.868501+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/google_analytics_data_etl/google_analytics_data_etl.py', '--cfg-path', '/tmp/tmpvzdj4ero']
+[2024-07-17T14:59:58.735+0000] {standard_task_runner.py:88} INFO - Job 92: Subtask task_load_data_postgres
+[2024-07-17T14:59:58.844+0000] {task_command.py:423} INFO - Running <TaskInstance: google_analytics_data_etl.task_load_data_postgres manual__2024-07-17T14:54:19.868501+00:00 [running]> on host f5f2893b4d65
+[2024-07-17T14:59:58.976+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='google_analytics_data_etl' AIRFLOW_CTX_TASK_ID='task_load_data_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-07-17T14:54:19.868501+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-17T14:54:19.868501+00:00'
+[2024-07-17T14:59:58.980+0000] {sql.py:276} INFO - Executing: INSERT INTO your_table (col1, col2) VALUES (%s, %s)
+[2024-07-17T14:59:59.002+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 188, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.8/functools.py", line 967, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 150, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 479, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `your_postgres_conn_id` isn't defined
+[2024-07-17T14:59:59.006+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=google_analytics_data_etl, task_id=task_load_data_postgres, execution_date=20240717T145419, start_date=20240717T145958, end_date=20240717T145959
+[2024-07-17T14:59:59.020+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 92 for task task_load_data_postgres (The conn_id `your_postgres_conn_id` isn't defined; 2075)
+[2024-07-17T14:59:59.058+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-17T14:59:59.080+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

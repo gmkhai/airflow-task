@@ -1,0 +1,13 @@
+[2024-07-19T15:17:12.772+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: google_analytics_data_etl.task_extraction_data manual__2024-07-18T15:04:45.851017+00:00 [queued]>
+[2024-07-19T15:17:12.779+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: google_analytics_data_etl.task_extraction_data manual__2024-07-18T15:04:45.851017+00:00 [queued]>
+[2024-07-19T15:17:12.792+0000] {taskinstance.py:2171} INFO - Starting attempt 9 of 9
+[2024-07-19T15:17:12.809+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): task_extraction_data> on 2024-07-18 15:04:45.851017+00:00
+[2024-07-19T15:17:12.818+0000] {standard_task_runner.py:60} INFO - Started process 73 to run task
+[2024-07-19T15:17:12.823+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'google_analytics_data_etl', 'task_extraction_data', 'manual__2024-07-18T15:04:45.851017+00:00', '--job-id', '274', '--raw', '--subdir', 'DAGS_FOLDER/google_analytics_data_etl/google_analytics_data_etl.py', '--cfg-path', '/tmp/tmpp1ampxdp']
+[2024-07-19T15:17:12.827+0000] {standard_task_runner.py:88} INFO - Job 274: Subtask task_extraction_data
+[2024-07-19T15:17:12.903+0000] {task_command.py:423} INFO - Running <TaskInstance: google_analytics_data_etl.task_extraction_data manual__2024-07-18T15:04:45.851017+00:00 [running]> on host 01f93dde3af3
+[2024-07-19T15:17:13.027+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='google_analytics_data_etl' AIRFLOW_CTX_TASK_ID='task_extraction_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-18T15:04:45.851017+00:00' AIRFLOW_CTX_TRY_NUMBER='9' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-18T15:04:45.851017+00:00'
+[2024-07-19T15:17:13.370+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-19T15:17:13.382+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=google_analytics_data_etl, task_id=task_extraction_data, execution_date=20240718T150445, start_date=20240719T151712, end_date=20240719T151713
+[2024-07-19T15:17:13.410+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-19T15:17:13.455+0000] {taskinstance.py:3281} INFO - 2 downstream tasks scheduled from follow-on schedule check
