@@ -40,7 +40,7 @@ default_args = {
     'start_date': datetime(2024, 7, 17),
     'retries': 0,
     'timeout': 200,
-    'schedule_interval': '*/2 * * * *',
+    'schedule_interval': '@daily',
     'on_failure_callback': task_fail_email_alert
 }
 
